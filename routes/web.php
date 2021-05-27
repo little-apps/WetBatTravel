@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-});
+Route::get('{slug}', AppController::class)->where('slug', '(?!api)([A-z\d\-\/_.]+)?');
+
+// Needed for Illuminate\Auth\Notifications\ResetPassword
+Route::get('password/reset/{token}', AppController::class)->name('password.reset');
+
+// Needed for Illuminate\Auth\Notifications\VerifyEmail
+Route::get('email/verify/{id}', AppController::class)->name('verification.verify');

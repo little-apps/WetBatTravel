@@ -7,12 +7,12 @@ import {
   Link
 } from "react-router-dom";
 
-import Dashboard from "./layouts/Dashboard";
+import Admin from "./layouts/Admin";
 
 ReactDOM.render(
     <Router>
         <Switch>
-            <Route path="/" component={Dashboard} />
+            <Route path="/" component={Admin} />
         </Switch>
     </Router>,
     document.getElementById("root")
