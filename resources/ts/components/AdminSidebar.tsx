@@ -25,6 +25,9 @@ export default class AdminSidebar extends React.Component<IProps, IState> {
                         <NavItem>
                             <NavLink href="/dashboard" active={location.pathname === "/dashboard"}>Dashboard</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink href="/quotes" active={location.pathname === "/quotes"}>Quotes</NavLink>
+                        </NavItem>
                     </Nav>
                 </div>
             </div>

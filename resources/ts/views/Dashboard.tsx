@@ -25,7 +25,7 @@ export default class Dashboard extends React.Component<IProps, IState> {
 
     public render() {
         return (
-            <div>
+            <>
                 <Row className="mb-3">
                     <Col>
                         <Jumbotron>
@@ -38,7 +38,7 @@ export default class Dashboard extends React.Component<IProps, IState> {
 
                 <Row className="mb-3">
                     <Col sm={4}>
-                        <QuickQuote />
+                        <QuickQuote {...this.props} />
                     </Col>
                     <Col sm={4}>
                         <PendingQuotes />
@@ -68,7 +68,7 @@ export default class Dashboard extends React.Component<IProps, IState> {
                         <CloseRatios />
                     </Col>
                 </Row>
-            </div>
+            </>
         );
     }
 }

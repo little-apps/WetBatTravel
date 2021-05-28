@@ -7,6 +7,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}" type="text/css" nonce="{{ csp_nonce() }}">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     </head>
     <body>
         <div id="root"></div>

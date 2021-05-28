@@ -16,7 +16,7 @@ class CreateTransportationsTable extends Migration
         Schema::create('transportations', function (Blueprint $table) {
             $table->id();
             $table->string('company');
-            $table->enum('type', ['Car', 'Van', 'Bus', 'Boat']);
+            $table->enum('type', ['Car', 'Van', 'Bus']);
             $table->decimal('cost_per_day');
             $table->timestamps();
         });

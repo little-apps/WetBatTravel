@@ -1,12 +1,13 @@
 import Request from "api/request/Request";
 
-export interface IAirport {
-    iata_code: string;
-    airport: string;
+export interface ITransportation {
+    id: number;
+    company: string;
+    type: string;
     [key: string]: any;
 }
 
-export default class Airports {
+export default class Transportation {
     private readonly request: Request;
 
     public constructor() {
@@ -14,7 +15,7 @@ export default class Airports {
     }
 
     public all() {
-        const response = this.request.get<IAirport[]>(Request.buildUrl("airports"));
+        const response = this.request.get<ITransportation[]>(Request.buildUrl("transportation"));
 
         return response;
     }

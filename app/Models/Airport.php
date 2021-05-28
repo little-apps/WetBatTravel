@@ -17,12 +17,25 @@ class Airport extends Model
     protected $primaryKey = 'iata_code';
 
     /**
+     * The "type" of the primary key ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
     public $timestamps = false;
 
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['hotel'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -30,6 +43,9 @@ class Airport extends Model
      * @var array
      */
     protected $hidden = [
-        'id',
     ];
+
+    public function hotel() {
+        return $this->hasOne(Hotel::class);
+    }
 }

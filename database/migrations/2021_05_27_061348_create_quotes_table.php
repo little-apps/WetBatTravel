@@ -14,12 +14,12 @@ class CreateQuotesTable extends Migration
     public function up()
     {
         Schema::create('quotes', function (Blueprint $table) {
-            $table->id();
+            $table->id()->from(1000);
             $table->char('from_iata_code', 3);
             $table->char('to_iata_code', 3);
             $table->date('start_date');
             $table->date('end_date');
-            $table->unsignedInteger('destination_id');
+            $table->unsignedBigInteger('transportation_id');
             $table->integer('people');
             $table->string('contact_name');
             $table->decimal('adjusted_cost')->nullable();
@@ -27,6 +27,7 @@ class CreateQuotesTable extends Migration
 
             $table->foreign('from_iata_code')->references('iata_code')->on('airports');
             $table->foreign('to_iata_code')->references('iata_code')->on('airports');
+            $table->foreign('transportation_id')->references('id')->on('transportations');
         });
     }
 

@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/airports', 'AirportsController@all');
+Route::get('/transportation', 'TransportationController@all');
+Route::apiResource('quotes', QuoteController::class);
