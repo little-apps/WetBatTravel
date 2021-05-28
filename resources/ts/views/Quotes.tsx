@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardTitle, Col, Jumbotron, Row } from "reactstrap";
 import { RouteComponentProps } from "react-router";
-import QuotesTable from "components/QuotesTable";
+import QuotesTable from "components/shared/QuotesTable";
 
 interface IProps extends RouteComponentProps {
 

@@ -29,9 +29,32 @@ export default class Dashboard extends React.Component<IProps, IState> {
                 <Row className="mb-3">
                     <Col>
                         <Jumbotron>
-                            <h1>Welcome to your dashboard!</h1>
-                            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-                            <p><a className="btn btn-primary" role="button">Learn more</a></p>
+                            <Row>
+                                <Col sm={4}>
+                                    <h1>Welcome to your dashboard!</h1>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit suscipit libero, eu facilisis velit. Nulla sapien nisi, faucibus ac ornare ut, convallis ac arcu. Suspendisse sodales vitae justo nec ullamcorper. Duis ultrices cursus urna, varius tempor elit maximus id. Quisque sagittis laoreet metus a faucibus. Donec dapibus nunc eu tellus viverra, vitae lobortis mauris cursus. In hac habitasse platea dictumst.</p>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                                </Col>
+                                <Col>
+                                    <Row style={{ height: '90%' }}>
+                                        <Col>
+                                            <img src="https://picsum.photos/1100/230" className="img-fluid" />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col sm={4}>
+                                            <h2>101 New Leads</h2>
+                                        </Col>
+                                        <Col sm={4}>
+                                            <h2>45 Quotes Created</h2>
+                                        </Col>
+                                        <Col sm={4}>
+                                            <h2>40 Quotes Pending</h2>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
                         </Jumbotron>
                     </Col>
                 </Row>

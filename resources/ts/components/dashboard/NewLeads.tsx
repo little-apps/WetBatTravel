@@ -1,4 +1,5 @@
 import React from "react";
+import FontAwesome from "react-fontawesome";
 import { Card, CardTitle, Col, ListGroup, ListGroupItem, Media, Row } from "reactstrap";
 
 interface IProps {
@@ -17,14 +18,17 @@ export default class NewLeads extends React.Component<IProps, IState> {
     public render() {
         return (
             <Card body>
-                <CardTitle tag="h4">New Leads</CardTitle>
+                <CardTitle tag="h4">
+                    <FontAwesome name="envelope-o" />{' '}
+                    New Leads
+                </CardTitle>
 
                 <ListGroup>
                     <ListGroupItem>
                         <Row>
                             <Col>
-                                <Media>
-                                    <Media left middle className="mr-3">
+                                <Media className="align-items-center">
+                                    <Media left className="mr-3">
                                         <Media object src="https://picsum.photos/id/1062/64/64" alt="Generic placeholder image" className="rounded-circle" />
                                     </Media>
                                     <Media body>

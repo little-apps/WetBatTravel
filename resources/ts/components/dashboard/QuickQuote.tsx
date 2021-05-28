@@ -1,20 +1,17 @@
-import Airports, { IAirport } from "api/Airports";
 import React, { FormEvent } from "react";
 import { Button, Card, CardTitle, Col, Form, Input, Label, Row } from "reactstrap";
 import SweetAlert from 'react-bootstrap-sweetalert';
-
-import Transportation, { ITransportation } from 'api/Transportation';
-import Quotes from 'api/Quotes';
-import { IQuote } from 'api/Quotes';
-import ResponseFormatter from 'utils/ResponseFormatter';
 import { RouteComponentProps } from 'react-router';
-import { ICreateQuoteParams } from '../../api/Quotes';
+
+import Airports, { IAirport } from "api/Airports";
+import Transportation, { ITransportation } from 'api/Transportation';
+import Quotes, { ICreateQuoteParams } from 'api/Quotes';
+import ResponseFormatter from 'utils/ResponseFormatter';
+import FontAwesome from "react-fontawesome";
 
 interface IProps extends RouteComponentProps {
 
 }
-
-type TFormKeys = 'departureAirport' | 'destinationAirport' | 'startDate' | 'endDate' | 'people' | 'transportation' | 'contact';
 
 interface IState {
     airports: IAirport[];
@@ -130,7 +127,10 @@ export default class QuickQuote extends React.Component<IProps, IState> {
                     </SweetAlert>
                 }
 
-                <CardTitle tag="h4">Quick Quote</CardTitle>
+                <CardTitle tag="h4">
+                    <FontAwesome name="forward" />{' '}
+                    Quick Quote
+                </CardTitle>
 
                 <Form onSubmit={this.onSubmit}>
                     <Row form className="mb-2">

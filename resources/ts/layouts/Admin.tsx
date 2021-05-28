@@ -1,5 +1,5 @@
-import AdminNavbar from "components/AdminNavbar";
-import AdminSidebar from "components/AdminSidebar";
+import AdminNavbar from "components/shared/AdminNavbar";
+import AdminSidebar from "components/shared/AdminSidebar";
 import React from "react";
 import { Redirect, RouteComponentProps, Switch } from "react-router";
 import { Route } from "react-router-dom";
