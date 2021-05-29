@@ -1,62 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Wet Bat Travel Prototype
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Building Application Instructions
 
-## About Laravel
+### Linux or Windows
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+You will need a Linux or Windows server that supports the following before continuing:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ * [PHP v7.2+](https://www.php.net/downloads)'
+ * Database (MySQL, SQL Server, or PostgreSQL)
+ * [Composer](https://getcomposer.org/download/)
+ * [NodeJS v14](https://nodejs.org/en/download/)
+ * [NPM v7](https://nodejs.org/en/download/package-manager/)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Clone the Git repository into a directory.
 
-## Learning Laravel
+       git clone https://github.com/little-apps/WetBatTravel.git
+       cd WetBatTravel
+       
+2. Create a file called ``.env`` in the ``WetBatTravel`` directory.
+3. Copy and paste the following into the ``.env`` file. Replace each ``xxx`` with an appropriate value.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+       APP_NAME="Wet Bat Travel"
+       APP_ENV=local
+       APP_KEY=
+       APP_DEBUG=false
+       APP_URL=http://xxx
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+       LOG_CHANNEL=stack
+       LOG_LEVEL=debug
 
-## Laravel Sponsors
+       DB_CONNECTION=mysql
+       DB_HOST=xxx
+       DB_PORT=3306
+       DB_DATABASE=xxx
+       DB_USERNAME=xxx
+       DB_PASSWORD=xxx
+      
+4. Install the needed Composer packages:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+       composer require
+       
+5. Generate a key for the app and JWT:
 
-### Premium Partners
+       php artisan key:generate
+       php artisan jwt:secret
+       
+6. Install the needed NPM packages:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+        npm install
+        
+7. Compile the Sass and TypeScript files:
 
-## Contributing
+        npm run production
+        
+7. Serve the application using PHP:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+        php artisan serve --host=localhost --port=8080
+        
+8. Access the app in a web browser by going to http://localhost:8080
 
-## Code of Conduct
+### Heroku
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+You will need the following before continuing:
 
-## Security Vulnerabilities
+ * [Heroku account with active subscription](https://dashboard.heroku.com/apps)
+ * [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+ * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Clone the Git repository into a directory.
 
-## License
+       git clone https://github.com/little-apps/WetBatTravel.git
+       cd WetBatTravel
+       
+2. Create app on Heroku:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+        heroku create
+        
+3. Push the source code to Heroku:
+
+        git push heroku
+        
+4. Set the ``APP_KEY`` environment variable:
+
+        heroku run php artisan key:generate --show
+        heroku config:set APP_KEY="(Output from above command)"
+
+5. Set the ``APP_URL`` environment variable to the URL of your Heroku app:
+
+        heroku config:set APP_URL="https://xxxx.herokuapp.com/"
+        
+6. Add the NodeJS build pack to the Heroku app:
+
+        heroku buildpacks:add heroku/nodejs
+        
+7. Set the database environment variables by:
+
+    a) Replacing ``xxx`` with the approriate value and running each command:
+
+        heroku config:set DB_CONNECTION=xxx
+        heroku config:set DB_HOST=xxx
+        heroku config:set DB_PORT=xxx
+        heroku config:set DB_DATABASE=xxx
+        heroku config:set DB_USERNAME=xxx
+        heroku config:set DB_PASSWORD=xxx
+
+    b) You can also spin up a ClearDB MySQL server by going to the Resources tab for the Heroku app and simply set the DATABASE_URL to the same value as ``CLEARDB_DATABASE_URL``.
+ 
+        heroku config:get CLEARDB_DATABASE_URL
+        heroku config:set DATABASE_URL="(Output from above command)"
+        
+8. Trigger the Heroku app to be re-deployed and re-compile assets:
+
+        git commit --allow-empty -m "Trigger Heroku deploy"
+        git push heroku
+        
+9. Migrate the database so the structure is correct and the tables are seeded. First, you will need to install the needed Composer packages using Bash.
+
+        heroku run bash
+        $ composer install
+        $ php artisan migrate:fresh --seed
+        
+10. Access the app by going to the Heroku URL in your web browser.
