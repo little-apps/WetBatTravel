@@ -169,4 +169,14 @@ Between the backend and frontend, I would say I put an equal amount of work into
  * Scales well (components can be re-used, APIs can be updated as needed)
  * Works with modern web browsers.
 
+## Functionality
 
+### Working
+
+ * Quick quote
+ * View quotes
+ * View a quote
+
+### To Do
+
+ * Authentication
