@@ -123,3 +123,50 @@ You will need the following before continuing:
         $ php artisan migrate:fresh --seed
         
 10. Access the app by going to the Heroku URL in your web browser.
+
+## Structural Decisions
+
+1. I put together the ERD using MySQL Workbench and this makes it easier to convert to Laravel's database migrations.
+2. I used Bootstrap Studio to put together a template for the dashboard. 
+4. I created the app using the starter template for Laravel and set it up to work with TypeScript and React.
+5. I moved the ERD into Laravel's database migrations, as well as generated models and seeders for each table.
+6. I converted the Bootstrap template into React components (using Reactstrap). I also setup the view so it renders the React components.
+7. I created controllers so the backend can be accessed using an API.
+8. I modified the React components so they work with the API.
+9. I fixed up the UI and added charts as well as icons.
+
+Between the backend and frontend, I would say I put an equal amount of work into both. However, I did put a reasonable amount of work into the frontend so it matches up with the prototype. 
+
+### Frontend Notes
+ * I changed some of the form control types so they're more appropriate (ie: a dropdown instead of a textbox for airports and transportation).
+ * I included a spinning circle so the user knows it's loading from the API.
+ * Since the table of quotes is being shown in the dashboard and quotes page, I created that as a seperate component.
+
+### Backend Notes
+ * I had to fix up the database structure a bit so it's able to reference related models.
+ * The quote is calculated using the price of the related items and the table also has "adjusted_cost" so it stores the price in case a related item's cost changes.
+ * I was going to have a users table to link specific people to a quote as well the contact person, but this would've taken more time. Instead, I just used a column called "people" that stores the number of people and another column called "contact_name" which stores the persons name as a VARCHAR. 
+
+### Technologies
+
+#### Laravel 8
+
+ * MVC Framework
+ * Supports different databases using ORM and migrations.
+ * Built-in support for translating TypeScript to ES5 (similiar to Webpack)
+ * Simple to write REST APIs
+ * Many third-party libraries and plugins available.
+
+#### Heroku
+
+ * Good for small-scale websites.
+ * Uses Git to sync so website is updated automatically.
+
+#### React (TypeScript)
+ * Client's requirement.
+ * Supported by Laravel.
+ * TypeScript enforces the data types so you're not pulling variables from nowhere.
+ * Scales well (components can be re-used, APIs can be updated as needed)
+ * Works with modern web browsers.
+
+
