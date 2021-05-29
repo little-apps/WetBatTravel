@@ -105,6 +105,8 @@ You will need the following before continuing:
         heroku config:set DB_PASSWORD=xxx
 
     b) You can also spin up a ClearDB MySQL server by going to the Resources tab for the Heroku app and simply set the DATABASE_URL to the same value as ``CLEARDB_DATABASE_URL``.
+    
+![Heroku ClearDB](https://user-images.githubusercontent.com/1192535/120055729-2abf3980-bff5-11eb-936e-ec150ac8573e.png)
  
         heroku config:get CLEARDB_DATABASE_URL
         heroku config:set DATABASE_URL="(Output from above command)"
