@@ -70,7 +70,7 @@ export default class QuotesTable extends React.Component<IProps, IState> {
                     </div>
                 }
 
-                <Table bordered>
+                <Table bordered responsive>
                     <thead>
                         <tr>
                             <th>ID</th>

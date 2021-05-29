@@ -2,9 +2,10 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { Nav, NavItem, NavLink } from "reactstrap";
 import { SidebarLinks } from 'Options';
+import classNames from 'classnames';
 
 interface IProps extends RouteComponentProps {
-
+    collapse: boolean;
 }
 
 interface IState {
@@ -17,10 +18,10 @@ export default class AdminSidebar extends React.Component<IProps, IState> {
     }
 
     public render() {
-        const { location } = this.props;
+        const { location, collapse } = this.props;
 
         return (
-            <div className="flex-column d-md-block bg-light sidebar collapse">
+            <div className={classNames('flex-column d-md-block bg-light sidebar', { collapse, show: !collapse })}>
                 <div className="sidebar-sticky pt-3">
                     <Nav className="flex-column">
                         {SidebarLinks.map((link, key) => (

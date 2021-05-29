@@ -78,7 +78,7 @@ export default class PopularDestinations extends React.Component<IProps, IState>
                         <Bar type="bar" data={data} options={options} />
                     </Col>
 
-                    <Col sm={8} style={{ width: '100px', height: '300px' }}>
+                    <Col sm={8} style={{ width: '100%', height: '300px' }}>
                         <VectorMap map={'ca_lcc'}
                                 ref="map"
                                 containerStyle={{

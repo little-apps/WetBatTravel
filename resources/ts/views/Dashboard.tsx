@@ -37,19 +37,19 @@ export default class Dashboard extends React.Component<IProps, IState> {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                                 </Col>
                                 <Col>
-                                    <Row style={{ height: '90%' }}>
+                                    <Row style={{ maxHeight: '90%' }}>
                                         <Col>
                                             <img src="https://picsum.photos/1100/230" className="img-fluid" />
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col sm={4}>
+                                        <Col sm={4} className="text-center">
                                             <h2>101 New Leads</h2>
                                         </Col>
-                                        <Col sm={4}>
+                                        <Col sm={4} className="text-center">
                                             <h2>45 Quotes Created</h2>
                                         </Col>
-                                        <Col sm={4}>
+                                        <Col sm={4} className="text-center">
                                             <h2>40 Quotes Pending</h2>
                                         </Col>
                                     </Row>
