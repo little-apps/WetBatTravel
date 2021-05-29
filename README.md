@@ -145,7 +145,7 @@ Between the backend and frontend, I would say I put an equal amount of work into
 ### Backend Notes
  * I had to fix up the database structure a bit so it's able to reference related models.
  * The quote is calculated using the price of the related items and the table also has "adjusted_cost" so it stores the price in case a related item's cost changes.
- * I was going to have a users table to link specific people to a quote as well the contact person, but this would've taken more time. Instead, I just used a column called "people" that stores the number of people and another column called "contact_name" which stores the persons name as a VARCHAR. 
+ * I was going to have the quotes link to specific people (as a m:n relationship) and also the contact person, but this would've taken more time. Instead, I just used a column called "people" that stores the number of people and another column called "contact_name" which stores the persons name as a VARCHAR. 
 
 ### Technologies
 
@@ -168,6 +168,12 @@ Between the backend and frontend, I would say I put an equal amount of work into
  * TypeScript enforces the data types so you're not pulling variables from nowhere.
  * Scales well (components can be re-used, APIs can be updated as needed)
  * Works with modern web browsers.
+
+#### Database
+The following is the ERD for the database:
+
+![ERD](https://user-images.githubusercontent.com/1192535/120057138-0d429d80-bffe-11eb-95ef-8660d917fd97.png)
+
 
 ## Functionality
 
